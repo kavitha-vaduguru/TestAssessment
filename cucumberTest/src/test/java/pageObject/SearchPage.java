@@ -16,13 +16,14 @@ public class SearchPage {
 	 PageFactory.initElements(webDriver, this);
 	 }
 	 
-	public String verifyGoogleSearchHomepage() {
+	 public String verifyGoogleSearchHomepage() {
 		String webPageTitle = webDriver.getTitle();
 		return webPageTitle;
-	}
-	/* Method to pass Search Data */
-	public void provideGoogleSearchInput(String strSearchData) {
+	 }
+	
+	 /* Method to pass Search Data */
+	 public void provideGoogleSearchInput(String strSearchData) {
 		googleSearchBox.sendKeys(strSearchData);
 		googleSearchBox.sendKeys(Keys.ENTER);
-	}
+	 }
 }

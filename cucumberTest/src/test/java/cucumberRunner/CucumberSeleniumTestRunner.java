@@ -9,12 +9,12 @@ import helper.CucumberSeleniumTestBase;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {
 		"html:target/cucumberHtmlReport" }, features = "src/test/resources/features/GoogleSearchTest.feature", glue = {
-				"stepDefinitions" }, dryRun = false, tags = { "@verifyWebPageLogo" })
+				"stepDefinitions" }, dryRun = false, tags = { "@validateGoogleSearchDetails" })
 
 public class CucumberSeleniumTestRunner extends CucumberSeleniumTestBase {
 
 	@AfterClass
-	public static void close() {
+	public static void closeDriver() {
 		webDriver.quit();
 	}
 

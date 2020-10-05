@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import helper.ReadStaticProperyFile;
 
 public class SearchResultPage {
-	 WebDriver driver;
+	 WebDriver webDriver;
 	 
-	 public SearchResultPage(WebDriver driver) {
-	 this.driver = driver;
-	 PageFactory.initElements(driver, this);
+	 public SearchResultPage(WebDriver webDriver) {
+	 this.webDriver = webDriver;
+	 PageFactory.initElements(webDriver, this);
 	 }
 	 
 	 @FindBy(xpath = "//a[@href='https://www.jpmorgan.com/']")
@@ -23,14 +23,14 @@ public class SearchResultPage {
 	 By verifyImage = By.xpath("//div[@class='logo-desktop-only']//div[@class='logo container-fluid']");
 
 public String verifyHomepage() {
-	String pageTitle = driver.getTitle();
+	String pageTitle = webDriver.getTitle();
 	return pageTitle;
 }
 
 /* This Method is used to click link on the result page */
 public void clickOnWebLink() {
 	LinkClick.click();
-	WebDriverWait wait = new WebDriverWait(driver,
+	WebDriverWait wait = new WebDriverWait(webDriver,
 			Integer.parseInt(ReadStaticProperyFile.getConfigData("pageloadTimeout")));
 	wait.until(ExpectedConditions.presenceOfElementLocated(verifyImage));
 }

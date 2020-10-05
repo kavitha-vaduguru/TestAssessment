@@ -21,20 +21,18 @@ public class GoogleSearchTestStepDef {
 	/* Method to launch google search web page URL */
 	
 	@Given("^I navigated to the google search webpage$")
-	public void launchURL() {
+	public void launchGoogleSearchPageURL() {
 		webDriver = CucumberSeleniumTestBase.driverSetup();
 		PageFactory.initElements(webDriver, this);
 		String webPageURL = ReadStaticProperyFile.getConfigData("GoogleWebPageURL");
-		String env = ReadStaticProperyFile.getConfigData("Testenvironment");
-		if (env.equalsIgnoreCase("QA")) {
-			System.out.println(webPageURL);
-			webDriver.get(webPageURL);
-			webDriver.manage().window().maximize();
-			int wait = Integer.parseInt(ReadStaticProperyFile.getConfigData("implicitwait"));
-			webDriver.manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
-			int pageloadTime = Integer.parseInt(ReadStaticProperyFile.getConfigData("pageloadTimeout"));
-			webDriver.manage().timeouts().pageLoadTimeout(pageloadTime, TimeUnit.SECONDS);
-		}
+		System.out.println(webPageURL);
+		webDriver.get(webPageURL);
+		webDriver.manage().window().maximize();
+		int wait = Integer.parseInt(ReadStaticProperyFile.getConfigData("implicitwait"));
+		webDriver.manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
+		int pageloadTime = Integer.parseInt(ReadStaticProperyFile.getConfigData("pageloadTimeout"));
+		webDriver.manage().timeouts().pageLoadTimeout(pageloadTime, TimeUnit.SECONDS);
+	
 	}
 
 	@Then("^I am on the Google search homepage using \"([^\"]*)\"$")

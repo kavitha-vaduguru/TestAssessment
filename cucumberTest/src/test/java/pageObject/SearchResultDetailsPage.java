@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import helper.CucumberSeleniumTestBase;
 
 public class SearchResultDetailsPage {
-	 WebDriver driver;
+	 WebDriver webDriver;
 	 
-	 public SearchResultDetailsPage(WebDriver driver) {
-	 this.driver = driver;
-	 PageFactory.initElements(driver, this);
+	 public SearchResultDetailsPage(WebDriver webDriver) {
+	 this.webDriver = webDriver;
+	 PageFactory.initElements(webDriver, this);
 	 }
 	 
 	 @FindBy(xpath = "//div[@class='logo-desktop-only']//div[@class='logo container-fluid']")
